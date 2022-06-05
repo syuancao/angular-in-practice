@@ -24,4 +24,12 @@ export class CourseCardComponent implements OnInit {
   isImageVisible() {
     return this.course && this.course.iconUrl;
   }
+
+  cardClasses() {
+    if (this.course?.category === 'BEGINNER') {
+      return ['beginner'];
+    } else {
+      return '';
+    }
+  }
 }
