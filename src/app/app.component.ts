@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { COURSES } from '../../server/db-data';
 
 @Component({
   selector: 'root',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  data = {
-    title: 'Angular In Practice',
-  };
+  coreCourse = COURSES[0];
+
+  rxjsCourse = COURSES[1];
+
+  ngrxCourse = COURSES[2];
 }
