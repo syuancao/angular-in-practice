@@ -32,4 +32,8 @@ export class AppComponent implements AfterViewInit {
     this.cards?.changes.subscribe(console.log);
     console.log(this.cards);
   }
+
+  onToggle(isHighlighted: boolean) {
+    console.log(isHighlighted);
+  }
 }
