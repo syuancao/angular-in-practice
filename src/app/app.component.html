@@ -19,13 +19,18 @@
     <p class="warn">{{ courseName }} has no image yet.</p>
     <img src="/assets/empty-image.png" alt="" />
   </ng-template>
-  <ng-container
-    *ngTemplateOutlet="blankImage; context: { description: course.description }"
-  ></ng-container>
-  <div *ngTemplateOutlet="blankImage; context: { description: courses[1].description }"></div>
-  <hr />
-  <hr />
-  <course-card (courseSelected)="onCourseSelected($event)" [course]="course">
+
+  <!--  <ng-container-->
+  <!--    *ngTemplateOutlet="blankImage; context: { description: course.description }"-->
+  <!--  ></ng-container>-->
+  <!--  <div *ngTemplateOutlet="blankImage; context: { description: courses[1].description }"></div>-->
+  <!--  <hr />-->
+  <!--  <hr />-->
+  <course-card
+    (courseSelected)="onCourseSelected($event)"
+    [course]="course"
+    [noImageTpl]="blankImage"
+  >
     <course-image [src]="course['iconUrl']"></course-image>
     <course-image [src]="courses[1]['iconUrl']"></course-image>
     <course-image [src]="courses[2]['iconUrl']"></course-image>

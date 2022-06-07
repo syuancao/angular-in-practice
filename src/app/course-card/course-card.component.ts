@@ -10,6 +10,7 @@ import {
   OnInit,
   Output,
   QueryList,
+  TemplateRef,
 } from '@angular/core';
 import { Course } from '../model/course';
 import { CourseImageComponent } from '../course-image/course-image.component';
@@ -22,12 +23,15 @@ import { CourseImageComponent } from '../course-image/course-image.component';
 export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentInit {
   @Input() course: Course | undefined;
   @Input() cardIndex: number | undefined;
+  @Input() noImageTpl: TemplateRef<any>;
   @Output('courseSelected')
   courseEmitter = new EventEmitter<Course>();
   @ContentChildren(CourseImageComponent, { read: ElementRef })
   images: QueryList<ElementRef> | undefined;
 
-  constructor() {}
+  constructor() {
+    this.noImageTpl = {} as TemplateRef<any>;
+  }
 
   ngOnInit(): void {}
 
