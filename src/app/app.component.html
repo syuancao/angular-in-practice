@@ -15,6 +15,16 @@
   <!--    [course]="course"-->
   <!--    [cardIndex]="i + 1"-->
   <!--  ></course-card>-->
+  <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{ courseName }} has no image yet.</p>
+    <img src="/assets/empty-image.png" alt="" />
+  </ng-template>
+  <ng-container
+    *ngTemplateOutlet="blankImage; context: { description: course.description }"
+  ></ng-container>
+  <div *ngTemplateOutlet="blankImage; context: { description: courses[1].description }"></div>
+  <hr />
+  <hr />
   <course-card (courseSelected)="onCourseSelected($event)" [course]="course">
     <course-image [src]="course['iconUrl']"></course-image>
     <course-image [src]="courses[1]['iconUrl']"></course-image>
