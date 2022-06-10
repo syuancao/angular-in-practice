@@ -6,24 +6,20 @@
   />
 </div>
 
-<div class="courses" *ngIf="courses[0] as course">
-  <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{ courseName }} has no image yet.</p>
-    <img src="/assets/empty-image.png" alt="" />
-  </ng-template>
+<ng-template [ngIf]="courses[0]" let-course>
+  <div class="courses">
+    <course-card
+      [highlighted]="true"
+      #highlighter="hl"
+      (toggleHighlight)="onToggle($event)"
+      (courseSelected)="onCourseSelected($event)"
+      [course]="course"
+    >
+      <course-image [src]="course['iconUrl']"></course-image>
 
-  <course-card
-    [highlighted]="true"
-    #highlighter="hl"
-    (toggleHighlight)="onToggle($event)"
-    (courseSelected)="onCourseSelected($event)"
-    [course]="course"
-    [noImageTpl]="blankImage"
-  >
-    <course-image [src]="course['iconUrl']"></course-image>
-
-    <div class="course-description" (dblclick)="highlighter.toggle()">
-      {{ course['longDescription'] }}
-    </div>
-  </course-card>
-</div>
+      <div class="course-description" (dblclick)="highlighter.toggle()">
+        {{ course['longDescription'] }}
+      </div>
+    </course-card>
+  </div>
+</ng-template>
