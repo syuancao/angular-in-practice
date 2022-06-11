@@ -2,7 +2,6 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
-  ContentChild,
   ContentChildren,
   ElementRef,
   EventEmitter,
@@ -11,6 +10,7 @@ import {
   Output,
   QueryList,
   TemplateRef,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Course } from '../model/course';
 import { CourseImageComponent } from '../course-image/course-image.component';
@@ -19,6 +19,7 @@ import { CourseImageComponent } from '../course-image/course-image.component';
   selector: 'course-card',
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentInit {
   @Input() course: Course | undefined;
