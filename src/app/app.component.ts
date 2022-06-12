@@ -12,7 +12,9 @@ import { CoursesService } from './services/courses.service';
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]> | undefined;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(private coursesService: CoursesService) {
+    console.log('root component ' + this.coursesService.id);
+  }
 
   ngOnInit() {
     this.courses$ = this.coursesService.loadCourses();
