@@ -7,7 +7,6 @@ import { CoursesService } from './services/courses.service';
   selector: 'root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [CoursesService],
 })
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]> | undefined;

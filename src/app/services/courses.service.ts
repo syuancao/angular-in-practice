@@ -5,7 +5,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 let counter = 0;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+  // useClass: CoursesService,
+  // useFactory: (http: any) => new CoursesService(http),
+  // deps: [HttpClient],
+})
 export class CoursesService {
   id: number | undefined;
   constructor(private http: HttpClient) {
