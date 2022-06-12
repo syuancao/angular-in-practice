@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from './model/course';
 import { CoursesService } from './services/courses.service';
@@ -9,6 +9,7 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   // providers: [{ provide: CONFIG_TOKEN, useValue: APP_CONFIG }],
+  providers: [CoursesService],
 })
 export class AppComponent implements OnInit {
   courses$: Observable<Course[]> | undefined;
